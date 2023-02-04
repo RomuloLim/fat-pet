@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native';
-import { HeaderContainer } from './styles';
+import { Text } from 'react-native';
+import { Container } from './styles';
 
 export function Home() {
     return (
-        <HeaderContainer>
+        <Container>
+            <IconButton />
             <Text>Home</Text>
-        </HeaderContainer>
+        </Container>
     );
 }
