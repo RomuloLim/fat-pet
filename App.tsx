@@ -1,9 +1,11 @@
+import { StatusBar } from 'react-native';
 import { useFonts } from 'expo-font';
 
 import { ThemeProvider } from 'styled-components';
 import lightTheme from './src/theme/Light';
 
 import { Home } from '@screens/Home';
+import { Loading } from '@components/Loading';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -20,7 +22,12 @@ export default function App() {
 
   return (
     <ThemeProvider theme={lightTheme}>
-      <Home />
+      <StatusBar
+        barStyle={'dark-content'}
+        backgroundColor="transparent"
+        translucent
+      />
+      {fontsLoaded ? <Home /> : <Loading />}
     </ThemeProvider>
   );
 };

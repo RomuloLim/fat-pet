@@ -5,7 +5,8 @@ export default {
         light: "#FFF",
         navi_blue: "#142270",
         redish: "#FFE2E0",
-        black: "08090A",
+        black: "#08090A",
+        cyan: "#47B6D4",
 
         gray_900: "#1A202C",
         gray_100: "#F7FAFC",
@@ -24,9 +25,9 @@ export default {
     },
 
     font_size: {
-        sm: 14,
-        md: 16,
-        lg: 18,
-        xl: 24,
+        sm: '14px',
+        md: '16px',
+        lg: '18px',
+        xl: '24px',
     }
 }
