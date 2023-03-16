@@ -11,3 +11,10 @@ export const OtherAnimalsSection = styled.View`
     justify-content: space-between;
     align-items: center;
 `
+
+export const AnimalsView = styled.View`
+    flex-direction: row;
+    align-items: stretch;
+    flex-flow: row wrap;
+    justify-content: space-between;
+`

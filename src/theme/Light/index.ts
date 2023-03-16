@@ -13,10 +13,25 @@ export default {
         gray_100: "#F7FAFC",
         gray_500: "rgba(255, 255, 255, 0.7)",
         gray_600: "#DDD",
+        gray_700: "#686868",
         gray_900: "#1A202C",
 
         danger: "#EB5757",
-        success: "#6FCF97"
+        success: "#6FCF97",
+        
+        cards: {
+            light_blue: "rgba(45, 156, 219, 1)",
+            light_red: "rgba(252, 210, 223, 1)",
+            light_green: "rgba(0, 184, 148, 1)",
+            light_purple: "rgba(108, 92, 231, 1)",
+            light_yellow: "rgba(253, 203, 110, 1)",
+            light_orange: "rgba(225, 112, 85, 1)",
+            light_pink: "rgba(232, 67, 147, 1)",
+            light_vine: "rgba(214, 48, 49, 1)",
+
+            grayish_blue: "rgba(220, 223, 240, 1)",
+            grayish_orange: "rgba(254, 240, 208, 1)"
+        },
     },
 
     font_family: {
