@@ -4,7 +4,7 @@ import { useFonts } from 'expo-font';
 import { ThemeProvider } from 'styled-components';
 import lightTheme from './src/theme/Light';
 
-import { Home } from '@screens/Home';
+import { Routes } from '@routes/index';
 import { Loading } from '@components/Loading';
 
 export default function App() {
@@ -27,7 +27,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <Home /> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
 };
