@@ -7,7 +7,7 @@ const { Navigator, Screen } = createNativeStackNavigator();
 
 export function AppRoutes() {
     return (
-        <Navigator screenOptions={{ headerShown: false }} initialRouteName='newPet'>
+        <Navigator screenOptions={{ headerShown: false }}>
             <Screen
                 name="home"
                 component={Home}

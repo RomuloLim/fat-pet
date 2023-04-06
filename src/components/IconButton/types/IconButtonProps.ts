@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
 
-export type IconButtonProps = {
+import { TouchableOpacityProps } from "react-native";
+
+export type IconButtonProps = TouchableOpacityProps & {
     children?: ReactNode,
     background?: string,
     color?: string,

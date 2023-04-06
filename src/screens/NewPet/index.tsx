@@ -1,7 +1,14 @@
-import { Text } from "react-native";
+import { Text } from 'react-native';
+import { BaseContainer } from '@components/Globals/BaseContainer';
+import { ScrollView, ScrollViewProps } from 'react-native';
 
 export function NewPet() {
     return (
-        <Text>HELLO WORLD CARALHO</Text>
+        <BaseContainer
+        >
+            <Text>
+                Hello world
+            </Text>
+        </BaseContainer>
     )
 }
