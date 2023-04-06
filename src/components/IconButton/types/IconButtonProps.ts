@@ -6,4 +6,5 @@ export type IconButtonProps = {
     color?: string,
     borderColor?: string,
     borderSize?: string,
+    upside?: boolean,
 }

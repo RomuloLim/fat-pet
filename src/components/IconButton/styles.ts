@@ -4,7 +4,6 @@ import { IconButtonProps } from "./types/IconButtonProps";
 import { KeyOfThemeColors } from "src/@types/genericals";
 
 export const ButtonContainer = styled(TouchableOpacity)`
-    background-color: ${({ theme }) => theme.colors.light};
     border-radius: 50px;
     width: 48px;
     height: 48px;
@@ -16,4 +15,6 @@ export const ButtonContainer = styled(TouchableOpacity)`
     border-width: ${({borderSize}: IconButtonProps) => borderSize || '1px'};
     border-color: ${({borderColor}: IconButtonProps) => ({theme}) => theme.colors[borderColor as KeyOfThemeColors|| 'gray_600']};
     background-color: ${({background}: IconButtonProps) => ({theme}) => theme.colors[background as KeyOfThemeColors|| 'light']};
+
+    margin-top: ${({upside}: IconButtonProps) => upside ? '-50px' : 0}; //using negative top margin the text can be pushed upwards wtf
     `;
