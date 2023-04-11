@@ -4,17 +4,19 @@ import { IconButtonProps } from "./types/IconButtonProps";
 
 import { Entypo } from '@expo/vector-icons';
 
-import theme from '../../theme/Light'
-import { KeyOfThemeColors } from "src/@types/genericals";
+import { useTheme } from "styled-components";
+
 
 export function IconButton(props: IconButtonProps) {
+    const theme = useTheme();
+
     return (
         <ButtonContainer {...props}>
             {
                 props.children || (
                     <Entypo
-                        name="plus"
-                        color={theme.colors[props.color as KeyOfThemeColors] || '#4A5568'}
+                        name='plus'
+                        color={theme.colors[props.color || 'gray_800'] as string}
                         size={20}
                     />
                 )

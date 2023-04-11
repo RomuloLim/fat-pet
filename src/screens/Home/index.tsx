@@ -20,11 +20,14 @@ export function Home() {
     return (
         <MainView>
             <ScrollView
-                contentContainerStyle={{ flexGrow: 1, paddingBottom: '60%' }}
+                contentContainerStyle={{ flexGrow: 1, paddingBottom: '40%' }}
                 showsVerticalScrollIndicator={false}
             >
                 <Container>
-                    <Header />
+                    <Header
+                        title="Danny"
+                        navigatesToBackButton
+                    />
                     <Card
                         title="Peso atual (g)"
                         value="669.36"

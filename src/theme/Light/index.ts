@@ -14,6 +14,7 @@ export default {
         gray_500: "rgba(255, 255, 255, 0.7)",
         gray_600: "#DDD",
         gray_700: "#686868",
+        gray_800: "#4A5568",
         gray_900: "#1A202C",
 
         danger: "#EB5757",

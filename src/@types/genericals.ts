@@ -1,3 +1,5 @@
-import lightTheme from '../theme/Light';
+import { useTheme } from "styled-components";
 
-export type KeyOfThemeColors = keyof typeof lightTheme.colors;
+const theme = useTheme();
+
+export type KeyOfThemeColors = keyof typeof theme.colors;
