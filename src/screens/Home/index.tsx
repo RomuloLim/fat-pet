@@ -1,21 +1,35 @@
+import { useState, useEffect } from 'react';
 import { useTheme } from 'styled-components';
+
+import { DocumentData, collection, getDocs } from "firebase/firestore";
 
 import { Card } from '@components/Card';
 import { Title } from '@components/Globals/Title';
 import { Header } from '@components/Header';
-import { IconButton } from '@components/IconButton';
 import { Separator } from '@components/Separator';
 import { ScrollView, View } from 'react-native';
 import { Container, OtherAnimalsSection, AnimalsView, MainView } from './styles';
 import { AnimalsCard } from '@components/AnimalsCard';
 import Rat from "@images/rat.svg"
-import Keroppi from "@images/Keroppi.svg"
-import Snake from "@images/Group 174.svg"
-import Monkey from "@images/Group 171.svg"
 import { Menu } from '@components/Menu';
+
+import database from "@config/firebaseconfig.tsx";
 
 export function Home() {
     const theme = useTheme();
+    const [animals, setAnimals] = useState([] as DocumentData);
+
+    async function handleAnimals() {
+        const querySnapshot = await getDocs(collection(database, "Animals"));
+
+        setAnimals(querySnapshot.docs.map((doc) => {
+            return { ...doc.data(), id: doc.id }
+        }));
+    }
+
+    useEffect(() => {
+        handleAnimals();
+    }, []);
 
     return (
         <MainView>
@@ -26,7 +40,6 @@ export function Home() {
                 <Container>
                     <Header
                         title="Danny"
-                        navigatesToBackButton
                     />
                     <Card
                         title="Peso atual (g)"
@@ -60,34 +73,20 @@ export function Home() {
                     <Separator />
 
                     <AnimalsView>
-                        <AnimalsCard
-                            icon={Rat}
-                            title="Danny"
-                            weight={770.52}
-                            background={theme.colors.cards.light_blue}
-                        />
-
-                        <AnimalsCard
-                            icon={Keroppi}
-                            title="Remy"
-                            weight={770.52}
-                            background={theme.colors.cards.light_green}
-                        />
-
-                        <AnimalsCard
-                            icon={Monkey}
-                            title="Maya"
-                            weight={770.52}
-                            background={theme.colors.cards.light_red}
-                        />
-
-                        <AnimalsCard
-                            icon={Snake}
-                            title="Jade"
-                            weight={770.52}
-                            background={theme.colors.cards.light_vine}
-                        />
-
+                        {
+                            animals.map((animal) => {
+                                console.log(animal);
+                                return (
+                                    <AnimalsCard
+                                        icon={Rat}
+                                        title={animal.name}
+                                        weight={animal.weight}
+                                        background={theme.colors.cards[animal.color as keyof typeof theme.colors.cards]}
+                                        key={animal.id}
+                                    />
+                                )
+                            })
+                        }
                     </AnimalsView>
                 </Container>
             </ScrollView>

@@ -13,7 +13,6 @@ function changeBrightness(color: string){
 
 export const Container = styled.View`
     width: 49%;
-    height: 28%;
     background-color: ${({background}: AnimalsCardStyleProps) => changeBrightness(background)};
     padding: 5% 10%;
     border-radius: 24px;

@@ -28,6 +28,9 @@
       "@images/*": [
         "./assets/images",
       ],
+      "@config/*": [
+        "./src/config",
+      ],
     }
   }
 }

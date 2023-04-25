@@ -14,7 +14,8 @@ module.exports = function(api) {
           '@screens': './src/screens',
           '@storage': './src/storage',
           '@utils': './src/utils',
-          '@images': './assets/images'
+          '@images': './assets/images',
+          '@config': './src/config',
         },
       },
     ],

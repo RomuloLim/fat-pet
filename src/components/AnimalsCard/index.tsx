@@ -3,6 +3,7 @@ import { useTheme } from 'styled-components';
 import { Text } from "react-native";
 import { Title, Container, Details, Weight, ImageView } from "./stytles";
 import { SvgProps } from "react-native-svg";
+import { Separator } from '@components/Separator';
 
 
 type AnimalsCardProps = {
@@ -23,6 +24,7 @@ export function AnimalsCard({ icon: Icon, title, weight, background }: AnimalsCa
             </ImageView>
             <Title>{title}</Title>
             <Weight>{weight} g</Weight>
+            <Separator />
             <Details>
                 <Text>Ver Detalhes</Text>
             </Details>
