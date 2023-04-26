@@ -1,6 +1,4 @@
-import { Text } from "react-native";
 import { Container, CurrentWeight, Row, ShowDetails, Title, RightContainer, ImageView } from "./styles";
-import PlantsGroup from '@images/group-plants.svg';
 
 type CardProps = {
     title: string,

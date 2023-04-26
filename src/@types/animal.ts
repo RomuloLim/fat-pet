@@ -1,4 +1,4 @@
-type Animal<a> = {
+type Animal = {
     id: string;
     name: string;
     age: number;
@@ -6,4 +6,5 @@ type Animal<a> = {
     color: string;
     type: string;
     icon: string;
+    weight: number;
 }

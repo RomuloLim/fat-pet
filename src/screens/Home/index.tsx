@@ -1,30 +1,30 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from 'styled-components';
 
-import { DocumentData, collection, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 
 import { Card } from '@components/Card';
 import { Title } from '@components/Globals/Title';
 import { Header } from '@components/Header';
 import { Separator } from '@components/Separator';
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import { Container, OtherAnimalsSection, AnimalsView, MainView } from './styles';
 import { AnimalsCard } from '@components/AnimalsCard';
 import Rat from "@images/rat.svg"
 import { Menu } from '@components/Menu';
 
-import database from "@config/firebaseconfig.tsx";
+import { database } from "@config/firebaseconfig";
 
 export function Home() {
     const theme = useTheme();
-    const [animals, setAnimals] = useState([] as DocumentData);
+    const [animals, setAnimals] = useState<Animal[]>([]);
 
     async function handleAnimals() {
         const querySnapshot = await getDocs(collection(database, "Animals"));
 
         setAnimals(querySnapshot.docs.map((doc) => {
             return { ...doc.data(), id: doc.id }
-        }));
+        }) as Animal[]);
     }
 
     useEffect(() => {
@@ -75,7 +75,6 @@ export function Home() {
                     <AnimalsView>
                         {
                             animals.map((animal) => {
-                                console.log(animal);
                                 return (
                                     <AnimalsCard
                                         icon={Rat}
