@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from 'styled-components';
 
-import { collection, getDocs } from "firebase/firestore";
 
 import { Card } from '@components/Card';
 import { Title } from '@components/Globals/Title';
@@ -13,7 +12,9 @@ import { AnimalsCard } from '@components/AnimalsCard';
 import Rat from "@images/rat.svg"
 import { Menu } from '@components/Menu';
 
-import { database } from "@config/firebaseconfig";
+import { collection, getDocs } from "firebase/firestore";
+import { ref, listAll } from "firebase/storage";
+import { database, storage } from "@config/firebaseconfig";
 
 export function Home() {
     const theme = useTheme();
@@ -21,6 +22,12 @@ export function Home() {
 
     async function handleAnimals() {
         const querySnapshot = await getDocs(collection(database, "Animals"));
+
+        const listRef = ref(storage, 'icons/')
+
+        listAll(listRef).then((res) => {
+            console.log(res);
+        });
 
         setAnimals(querySnapshot.docs.map((doc) => {
             return { ...doc.data(), id: doc.id }
