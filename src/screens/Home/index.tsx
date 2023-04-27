@@ -13,7 +13,7 @@ import Rat from "@images/rat.svg"
 import { Menu } from '@components/Menu';
 
 import { collection, getDocs } from "firebase/firestore";
-import { ref, listAll } from "firebase/storage";
+import { ref, list } from "firebase/storage";
 import { database, storage } from "@config/firebaseconfig";
 
 export function Home() {
@@ -25,9 +25,9 @@ export function Home() {
 
         const listRef = ref(storage, 'icons/')
 
-        listAll(listRef).then((res) => {
-            console.log(res);
-        });
+        const images = await list(listRef, { maxResults: 1 })
+
+        console.log(images.items[0].toString());
 
         setAnimals(querySnapshot.docs.map((doc) => {
             return { ...doc.data(), id: doc.id }
