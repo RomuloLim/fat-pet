@@ -21,11 +21,12 @@ export function NewPet() {
                     placeholder='Idade'
                 />
                 <Input
-                    placeholder='Sexo'
+                    placeholder='Gênero'
                 />
                 <Input
                     placeholder='Tipo de Animal'
                 />
+
             </BackgroundView>
         </BaseContainer>
     )

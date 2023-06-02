@@ -43,3 +43,8 @@ export const ImageView = styled.View`
     padding: 10px;
     border-radius: 100px;
 `
+
+export const ImageContent = styled.Image`
+    width: 40px;
+    height: 40px;
+`

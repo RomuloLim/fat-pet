@@ -13,7 +13,7 @@ import Rat from "@images/rat.svg"
 import { Menu } from '@components/Menu';
 
 import { collection, getDocs } from "firebase/firestore";
-import { ref, list } from "firebase/storage";
+import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { database, storage } from "@config/firebaseconfig";
 
 export function Home() {
@@ -25,13 +25,21 @@ export function Home() {
 
         const listRef = ref(storage, 'icons/')
 
-        const images = await list(listRef, { maxResults: 1 })
+        const images = await listAll(listRef);
 
-        console.log(images.items[0].toString());
+        const animalsData = Promise.all(querySnapshot.docs.map(async (doc) => {
+            const docData = doc.data();
 
-        setAnimals(querySnapshot.docs.map((doc) => {
-            return { ...doc.data(), id: doc.id }
-        }) as Animal[]);
+            const image = images.items.find((image) => {
+                return image.name === docData.image
+            });
+
+            const imageUrl = await getDownloadURL(image || images.items[0]);
+
+            return { ...doc.data(), id: doc.id, url: imageUrl }
+        }));
+
+        setAnimals(await animalsData as unknown as Animal[]);
     }
 
     useEffect(() => {
@@ -84,7 +92,7 @@ export function Home() {
                             animals.map((animal) => {
                                 return (
                                     <AnimalsCard
-                                        icon={Rat}
+                                        iconUrl={animal.url}
                                         title={animal.name}
                                         weight={animal.weight}
                                         background={theme.colors.cards[animal.color as keyof typeof theme.colors.cards]}
