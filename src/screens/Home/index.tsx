@@ -9,7 +9,6 @@ import { Separator } from '@components/Separator';
 import { ScrollView } from 'react-native';
 import { Container, OtherAnimalsSection, AnimalsView, MainView } from './styles';
 import { AnimalsCard } from '@components/AnimalsCard';
-import Rat from "@images/rat.svg"
 import { Menu } from '@components/Menu';
 
 import { collection, getDocs } from "firebase/firestore";
@@ -24,7 +23,6 @@ export function Home() {
         const querySnapshot = await getDocs(collection(database, "Animals"));
 
         const listRef = ref(storage, 'icons/')
-
         const images = await listAll(listRef);
 
         const animalsData = Promise.all(querySnapshot.docs.map(async (doc) => {
