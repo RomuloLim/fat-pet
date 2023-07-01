@@ -33,6 +33,11 @@ export default {
             grayish_blue: "rgba(220, 223, 240, 1)",
             grayish_orange: "rgba(254, 240, 208, 1)"
         },
+
+        social: {
+            facebook: '#4267B2',
+            google: '#DB4437',
+        }
     },
 
     font_family: {
@@ -52,5 +57,6 @@ export default {
         md: '16px',
         lg: '18px',
         xl: '24px',
+        h1: '30px'
     }
 }

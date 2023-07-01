@@ -23,7 +23,7 @@ export function AnimalsCard({ title, weight, background, iconUrl }: AnimalsCardP
             </ImageView>
             <Title>{title}</Title>
             <Weight>{weight} g</Weight>
-            <Separator />
+
             <Details>
                 <Text>Ver Detalhes</Text>
             </Details>
